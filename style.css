@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(179, 175, 175);
+    font-family: 'cambria';
+}
+
+.card {
+    padding: 30px;
+    background-color: white;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px;
+}
+
+.list button {
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+}
