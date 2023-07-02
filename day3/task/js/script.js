@@ -46,7 +46,7 @@ function mail() {
     const destination = "bagassatjin23@gmail.com";
     let a = document.createElement("a")
     a.setAttribute('href', `mailto:${destination}?subject=${subject}&body= Hello, my name is ${name} , my reason contact you is ${message}, contact me at ${number}`)
-    // a.click()
+    a.click()
     
 
     let data = {
