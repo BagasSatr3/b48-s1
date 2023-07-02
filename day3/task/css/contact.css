@@ -1,0 +1,93 @@
+body {
+    background-color: rgb(222, 221, 221);
+}
+
+.header {
+    text-align: center;
+    margin-top: 50px;
+    /* font-weight: ; */
+}
+
+form {
+    padding: 40px 32px;
+    background-color: #ffffff;
+    width: 600px;
+    border-radius: 10px;
+    border: 1px solid #f2f2f2;
+    box-shadow: 0 0 5px gray;
+  }
+
+input, select, textarea {
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 3px #8d8d8d;
+    resize: vertical;
+    
+}
+
+.form-container div label {
+    font-size: medium;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container div button {
+    margin-top: 20px;
+    /* margin-bottom: 50px ; */
+    background-color: black;
+    color: #ffffff; 
+    width: fit-content; 
+    border-radius: 50px;
+    border-style: none;
+    padding: 7px;
+    padding-left: 35px;
+    padding-right: 35px;
+    display: flex;
+    align-self: end;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-container div button:hover {
+    background-color: rgb(52, 52, 52);
+    color: #ffffff; 
+}
+
+.contact-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* margin: auto; */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* background-color: aqua; */
+    /* align-items: center; */
+    /* height: 100vb; */
+}
+
+.note {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+
