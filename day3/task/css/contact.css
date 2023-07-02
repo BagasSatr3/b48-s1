@@ -48,7 +48,7 @@ input, select, textarea {
     flex-direction: column;
 }
 
-.form-container div button {
+.form-container div button, .abutton {
     margin-top: 20px;
     /* margin-bottom: 50px ; */
     background-color: black;

@@ -27,8 +27,8 @@
         <h1>GET IN TOUCH</h1>
     </div>
     <div class="contact-container">
-        <!-- <form onsubmit="mail()" class="form-container" > -->
-        <div class="form form-container">
+        <form onsubmit="mail(); return false" class="form-container" >
+        <!-- <div class="form form-container"> -->
             <div>
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" placeholder="Enter your name" required>
@@ -56,8 +56,8 @@
                 <textarea cols="15" rows="10" name="message" id="message" placeholder="Here is your message" required></textarea>
             </div>
             <div>
-                <!-- <button>Submit</button> -->
-                <a onclick="mail()">Submit</a>
+                <button>Submit</button>
+                <!-- <a class="abutton" onclick="mail()">Submit</a> -->
             </div>
             <p>There is an alternate form <a href="contact-alt.html">click here</a></p>
             </form>
