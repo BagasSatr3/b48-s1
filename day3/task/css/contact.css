@@ -8,7 +8,7 @@ body {
     /* font-weight: ; */
 }
 
-form {
+form, .form {
     padding: 40px 32px;
     background-color: #ffffff;
     width: 600px;
