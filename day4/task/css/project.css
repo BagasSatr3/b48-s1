@@ -209,3 +209,9 @@ i {
 .modal-button {
     background-color: #ffffff;
 }
+
+.textw {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -121,7 +121,7 @@ function renderProject() {
                     <div class="profile-text">
                     <h4 class="mt-2"><button class="modal-button" type="button" data-bs-toggle="modal" data-bs-target="#${project[i].id}">${project[i].name}</button></h4>
                         <span>duration : 3 month</span>
-                        <p>${project[i].description}</p>
+                        <p class="textw" >${project[i].description}</p>
                         <p>${project[i].startDate} - ${project[i].endDate}</p>
                         ${project[i].cnodejs}
                         ${project[i].cvuejs}
@@ -139,7 +139,6 @@ function renderProject() {
                 </div>
             </div>
 
-<!-- Modal -->
 <div class="modal fade" id="${project[i].id}" tabindex="-1" aria-labelledby="${project[i].name}Label" aria-hidden="true">
   <div class="modal-dialog modal-xl">
     <div class="">
