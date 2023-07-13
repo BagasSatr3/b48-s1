@@ -1,7 +1,6 @@
 const promise = new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
 
-    //https://www.npoint.io/docs/87896768813bcf08ce4f
     xhr.open("GET", "https://api.npoint.io/87896768813bcf08ce4f", true)
     xhr.onload = function () {
         // HTTP status code
