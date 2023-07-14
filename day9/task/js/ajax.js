@@ -21,7 +21,7 @@ let testimonialData = []
 async function getData() {
     try {
         const response = await promise
-        console.log(response)
+        // console.log(response)
         testimonialData = response
         allTestimonial()
     } catch (err) {
