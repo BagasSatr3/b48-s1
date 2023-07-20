@@ -97,10 +97,27 @@ func addProject(c echo.Context) error {
 	startDate := c.FormValue("startDate")
 	endDate := c.FormValue("endDate")
 	description := c.FormValue("description")
-	nodejs := c.FormValue("nodejs")
-	reactjs := c.FormValue("reactjs")
-	vuejs := c.FormValue("vuejs")
-	javascript := c.FormValue("javascript")
+	// nodejs := c.FormValue("nodejs")
+	// reactjs := c.FormValue("reactjs")
+	// vuejs := c.FormValue("vuejs")
+	// javascript := c.FormValue("javascript")
+
+	var nodejs bool
+	if c.FormValue("nodejs") == "nodejs" {
+		nodejs = true
+	}
+	var reactjs bool
+	if c.FormValue("reactjs") == "reactjs" {
+		reactjs = true
+	}
+	var vuejs bool
+	if c.FormValue("vuejs") == "vuejs" {
+		vuejs = true
+	}
+	var javascript bool
+	if c.FormValue("javascript") == "javascript" {
+		javascript = true
+	}
 
 	fmt.Println("name: ", name)
 	fmt.Println("startDate: ", startDate)
