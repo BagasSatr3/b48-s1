@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../assets/img/leaf.png" type="image/x-icon">
+    <title>Project</title>
+</head>
+<body class="bg-dark-subtle">
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light ">
+        <div class="container-fluid mx-2">
+        <img class="navbar-brand" src="../assets/img/dumbways.png" alt="">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/project">Add Project</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/testimonial">Testimonial</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="">
+                <a href="/contact" class="text-decoration-none btn btn-outline-dark">Contact</a>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+    
+
+    <div class="">
+        <br>
+        <div class="container text-end">
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Project
+            </button>
+        </div>
+        <h1 class="text-center mt-4 mb-4">MY PROJECTS</h1>
+        <br>
+        <div class="container d-flex">
+            <div class="row justify-content-center" id="project">
+                {{ range $index, $project := .Projects }}
+                <div class="col col-md-6 col-sm-12 col-lg-6 col-xl-4 mb-4">
+                    <div class="card shadow" style="width: 23rem;">
+                        <img src="/assets/img/fish.jpg" alt="" srcset="" class="rounded m-4" >
+                        <div class="mx-4 mb-4">
+                            <a class="mt-2 text-start" href="/project-detail/{{$index}}"><button class="btn fs-3" type="button" data-bs-toggle="modal" data-bs-target="#${project[i].id}">{{$project.Name}}</button></a>
+                            <p class="fw-light fs-6">duration : {{$project.Duration}} days</p>
+                            <p class="fw-light fs-6">{{$project.StartDate}} - {{$project.EndDate}}</p>
+                            <p class="" maxlength="100" style="text-align: justify;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{$project.Description}}</p>
+                            {{$project.Nodejs}}
+                            {{$project.Vuejs}}
+                            {{$project.Reactjs}}
+                            {{$project.Javascript}}
+                            <div class="row text-center mt-4">
+                                <div class="col">
+                                    <a href="/form-edit/{{$index}}" class="btn btn-dark rounded-pill px-5 text-decoration-none text-white">Edit</a>
+                                </div>
+                                <div class="col">
+                                    <form action="/delete-project/{{$index}}" method="post">
+                                        <button class="btn btn-dark rounded-pill px-5">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </div>
+
+  <div class="modal modal-lg fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-4" id="exampleModalLabel">ADD MY PROJECT</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class=" mb-4">
+                <!-- <form onsubmit="addProject(event); increment()" class="m-4"> -->
+                <form action="/add-project" method="POST" class="">
+                    <div class="">
+                        <div class="">
+                            <label class="form-label" for="name">Project Name</label>
+                            <input class="form-control mb-2" type="text" name="name" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="form-label" for="startDate">Start Date</label>
+                                <input class="form-control mb-2" type="date" name="startDate" id="startDate" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label" for="endDate">End Date</label>
+                                <input class="form-control mb-2" type="date" name="endDate" id="endDate" required>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="col d-flex">
+                                    <label class="form-label" for="description">Description</label>
+                                </div>
+                                <div class="col text-end">
+                                    <button class="btn fs-6" onclick="copyClipboard(); return false" title="Copy Instant Description"><i class="fa-regular fa-clipboard"></i></button>
+                                </div>
+                            </div>
+                            <textarea cols="15" rows="10" name="description" id="description" placeholder="Here is your description" class="form-control" required></textarea>
+                        </div>
+                        <div class="row mt-2">
+                            <label class="form-label" for="">Technologies</label>
+                            <div class="col">
+                                <input type="checkbox" class="mx-2 check" id="nodejs" name="nodejs" value="nodejs">
+                                <label class="form-label" for="" class="mx-2 fw-normal"><i class="fa-brands fa-node-js"></i> Node JS</label>
+                            </div>
+                            <div class="col">
+                                <input type="checkbox" class="mx-2 check" id="reactjs" name="reactjs" value="reactjs">
+                                <label class="form-label" for="" class="mx-2 fw-normal"><i class="fa-brands fa-react"></i> React JS</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="checkbox" class="mx-2 check" id="vuejs" name="vuejs" value="vuejs">
+                                <label class="form-label" for="" class="mx-2 fw-normal"> <i class="fa-brands fa-vuejs"></i> Vue JS</label>
+                            </div>
+                            <div class="col">
+                                <input type="checkbox" class="mx-2 check" id="javascript" name="javascript" value="javascript">
+                                <label class="form-label" for="" class="mx-2 fw-normal"><i class="fa-brands fa-square-js"></i> Javascript</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label" for="image">Upload Image</label>
+                            <input type="file" name="image" id="image" class="form-control mb-2">
+                        </div>
+                        <div class="text-end">
+                            <!-- <button class="mt-4 btn btn-dark rounded-pill px-4" onclick="validateform()">Submit</button> -->
+                            <button class="mt-4 btn btn-dark rounded-pill px-4">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<input type="text" value="A star is an astronomical object comprising a luminous spheroid of plasma held together by self-gravity. The nearest star to Earth is the Sun. Many other stars are visible to the naked eye at night, but their immense distances from Earth make them appear as fixed points of light. The most prominent stars have been categorised into constellations and asterisms, and many of the brightest stars have proper names. Astronomers have assembled star catalogues that identify the known stars and provide standardized stellar designations. The observable universe contains an estimated 1022 to 1024 stars. Only about 4,000 of these stars are visible to the naked eye, all within the Milky Way galaxy." id="myInput" hidden>
+
+</body>
+<script src="../assets/js/script.js"></script>
+<script src="https://kit.fontawesome.com/628e38e2cc.js" crossorigin="anonymous"></script>
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->
+
+</html>
