@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../assets/img/leaf.png" type="image/x-icon">
+    <title>Day 15</title>
+</head>
+<body class="bg-dark-subtle">
+  {{if .Flash.FlashMessage}}
+  {{if .Flash.FlashStatus}}
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{.Flash.FlashMessage}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{else}}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{.Flash.FlashMessage}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {{end}}
+  {{end}}
+  <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light ">
+        <div class="container-fluid mx-2">
+        <img class="navbar-brand" src="../assets/img/dumbways.png" alt="">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          {{if .UserLoginSession.IsLogin}}
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/project">Add Project</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/testimonial">Testimonial</a>
+              </li>
+            </ul>
+            <!-- <form class="d-flex" role=""> -->
+                <div class="btn-group mx-4">
+                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{.UserLoginSession.Name}}
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <form action="/logout" method="POST" class="">
+                            <button type="submit" class="btn">Logout</button>
+                        </form>
+                      </li>
+                    </ul>
+                  </div>
+                <a href="/contact" class="text-decoration-none btn btn-outline-dark">Contact</a>
+            <!-- </form> -->
+            {{else}}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/project">Add Project</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/testimonial">Testimonial</a>
+                </li>
+              </ul>
+              <!-- <form class="d-flex" role=""> -->
+                <div class="btn-group mx-4">
+                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      Action
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/form-login">Login</a></li>
+                      <li><a class="dropdown-item" href="/form-register">Register</a></li>
+                    </ul>
+                  </div>
+                <a href="/contact" class="text-decoration-none btn btn-outline-dark">Contact</a>
+              <!-- </form> -->
+            {{end}}
+          </div>
+        </div>
+      </nav>
+
+   <div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="m-4 row">
+            <div class="col col-md col-sm col-lg">
+                <h1 class="mt-2">Here lies my work. Hello!</h1>
+            <p class="mt-4" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nisi quod, assumenda libero recusandae, optio dolore, aut asperiores perspiciatis quia debitis et exercitationem sint repellendus aperiam architecto animi quaerat! Ducimus. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum sed dolor et molestias nesciunt quod aperiam quis molestiae facere excepturi officiis adipisci optio, perferendis illum laboriosam in, ut ratione! Magnam? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat sequi vel, optio accusantium porro quis. Assumenda libero harum totam, aliquam voluptatum adipisci, recusandae numquam eum nam earum, molestiae dolore dolorem.</p>
+            <div class="row mt-4">
+                <div class="col-3">
+                    <a class="btn btn-dark rounded-pill px-4" href="contact">
+                        contact
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="btn" href="#">
+                        download CV
+                            <i class="fa fa-download"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-4">
+                <div>
+                    <a class="btn fs-3" href="https://linkedin.com">    
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a class="btn fs-3" href="https://instagram.com">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a class="btn fs-3" href="https://facebook.com">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a class="btn fs-3" href="https://twitter.com">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-xl-4 col-sm-12 col">
+                <div class="card shadow-sm mt-4 text-center">
+                    <img src="../assets/img/bagas.jpeg" class="card-img-top" alt="" srcset="">
+                    <div class="mt-4">
+                        <h4 class="fw-semibold">Bagas Satria</h4>
+                        <p>Full Stack Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+   <br>
+    <hr class="m-4">
+<div class="mt-3 bg-secondary">
+    <br>
+    {{if .UserLoginSession.IsLogin}}
+        <h1 class="text-center mt-4 mb-4">MY PROJECTS</h1>
+        <br>
+        <div class="container d-flex">
+            <div class="row justify-content-center" id="project">
+                {{ range $project := .Projects }}
+                <div class="col col-md-6 col-sm-12 col-lg-6 col-xl-4 mb-4">
+                    <div class="card shadow" style="width: 23rem;">
+                        <img src="/assets/img/fish.jpg" alt="" srcset="" class="rounded m-4" >
+                        <div class="mx-4 mb-4">
+                            <a class="mt-2 text-start" href="/project-detail/{{$project.Id}}"><button class="btn fs-3" type="button" data-bs-toggle="modal" data-bs-target="#${project[i].id}">{{$project.Name}}</button></a>
+                            <p class="fw-light fs-6">duration : {{$project.Duration}}</p>
+                            <p class="fw-light fs-6">{{$project.Start}} - {{$project.End}}</p>
+                            <p class="" maxlength="100" style="text-align: justify;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{$project.Description}}</p>
+                            {{$project.Nodejs}}
+                            {{$project.Vuejs}}
+                            {{$project.Reactjs}}
+                            {{$project.Javascript}}
+                            <div class="row text-center mt-4">
+                                <div class="col">
+                                    <a href="/form-edit/{{$project.Id}}" class="btn btn-dark rounded-pill px-5 text-decoration-none text-white">Edit</a>
+                                </div>
+                                <div class="col">
+                                    <form action="/delete-project/{{$project.Id}}" method="post">
+                                        <button class="btn btn-dark rounded-pill px-5">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+        {{else}}
+        <h1 class="text-center mt-4 mb-4">MY PROJECTS</h1>
+        <br>
+        <div class="container d-flex">
+            <div class="row justify-content-center" id="project">
+                {{ range $project := .Projects }}
+                <div class="col col-md-6 col-sm-12 col-lg-6 col-xl-4 mb-4">
+                    <div class="card shadow" style="width: 23rem;">
+                        <img src="/assets/img/fish.jpg" alt="" srcset="" class="rounded m-4" >
+                        <div class="mx-4 mb-4">
+                            <a class="mt-2 text-start" href="/project-detail/{{$project.Id}}"><button class="btn fs-3" type="button" data-bs-toggle="modal" data-bs-target="#${project[i].id}">{{$project.Name}}</button></a>
+                            <p class="fw-light fs-6">duration : {{$project.Duration}}</p>
+                            <p class="fw-light fs-6">{{$project.Start}} - {{$project.End}}</p>
+                            <p class="" maxlength="100" style="text-align: justify;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{$project.Description}}</p>
+                            {{$project.Nodejs}}
+                            {{$project.Vuejs}}
+                            {{$project.Reactjs}}
+                            {{$project.Javascript}}
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>
+        {{end}}
+</div>
+</body>
+
+<script src="https://kit.fontawesome.com/628e38e2cc.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</html>
